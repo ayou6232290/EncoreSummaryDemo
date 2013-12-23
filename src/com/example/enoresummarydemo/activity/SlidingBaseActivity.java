@@ -14,8 +14,8 @@ import cn.encore.lib.sliding.SlidingMenu;
 import cn.encore.lib.sliding.app.SlidingFragmentActivity;
 
 import com.example.enoresummarydemo.R;
-import com.example.enoresummarydemo.fragment.BaseFragment;
 import com.example.enoresummarydemo.fragment.MenuFragment;
+import com.example.enoresummarydemo.fragment.base.BaseFragment;
 
 /**
  * 左侧菜单BaseActivity

@@ -11,7 +11,7 @@ import android.widget.Button;
 
 import com.example.enoresummarydemo.R;
 import com.example.enoresummarydemo.activity.SlidingActivity;
-import com.example.enoresummarydemo.fragment.BaseFragment;
+import com.example.enoresummarydemo.fragment.base.BaseFragment;
 
 public class FramFragment extends BaseFragment {
 

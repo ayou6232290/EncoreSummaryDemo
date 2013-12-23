@@ -8,7 +8,7 @@ import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
-import com.example.enoresummarydemo.fragment.BaseFragment;
+import com.example.enoresummarydemo.fragment.base.BaseFragment;
 import com.example.enoresummarydemo.fragment.fram.FramFragment;
 import com.example.enoresummarydemo.fragment.views.ViewFragment;
 

@@ -15,9 +15,10 @@ import cn.encore.lib.sliding.SlidingMenu;
 
 import com.example.enoresummarydemo.R;
 import com.example.enoresummarydemo.activity.SlidingActivity;
-import com.example.enoresummarydemo.fragment.BaseFragment;
+import com.example.enoresummarydemo.fragment.base.BaseFragment;
+import com.example.enoresummarydemo.fragment.base.SlidingBaseFragment;
 
-public class PropertiesFragment extends BaseFragment {
+public class PropertiesFragment extends SlidingBaseFragment {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

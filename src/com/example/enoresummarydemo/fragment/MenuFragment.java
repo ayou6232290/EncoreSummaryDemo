@@ -13,6 +13,7 @@ import cn.encore.lib.sliding.CustomViewAbove;
 
 import com.example.enoresummarydemo.R;
 import com.example.enoresummarydemo.activity.SlidingBaseActivity;
+import com.example.enoresummarydemo.fragment.base.BaseFragment;
 import com.example.enoresummarydemo.fragment.sliding.EmptyFragment;
 import com.example.enoresummarydemo.fragment.sliding.PropertiesFragment;
 import com.example.enoresummarydemo.fragment.sliding.ViewPagerFragment;

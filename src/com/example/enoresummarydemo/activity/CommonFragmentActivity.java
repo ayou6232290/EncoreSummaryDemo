@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 
 import com.example.enoresummarydemo.BaseActivity;
 import com.example.enoresummarydemo.R;
-import com.example.enoresummarydemo.fragment.BaseFragment;
+import com.example.enoresummarydemo.fragment.base.BaseFragment;
 import com.example.enoresummarydemo.fragment.sliding.ViewPagerFragment;
 
 /**
