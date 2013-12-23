@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/menuAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ic_launcher"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/menuProperties"
+        style="@style/menu_style"
+        android:layout_width="match_parent"
+        android:text="SlidingMenu Properties" />
+
+    <TextView
+        android:id="@+id/menuViewPager"
+        style="@style/menu_style"
+        android:layout_width="match_parent"
+        android:text="MenuViewPager" />
+
+    <TextView
+        android:id="@+id/menu03"
+        style="@style/menu_style"
+        android:layout_width="match_parent"
+        android:text="稍后开发" />
+
+    <TextView
+        android:id="@+id/menu04"
+        style="@style/menu_style"
+        android:layout_width="match_parent"
+        android:text="稍后开发" />
+
+    <TextView
+        android:id="@+id/menu05"
+        style="@style/menu_style"
+        android:layout_width="match_parent"
+        android:text="稍后开发" />
+
+</LinearLayout>
