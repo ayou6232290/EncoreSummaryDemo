@@ -20,12 +20,16 @@ import com.example.enoresummarydemo.fragment.sliding.ViewPagerFragment;
 public class CommonFragmentActivity extends BaseActivity {
 	
 	public static final String KEY_PACKAGENAME = "packageName";
+	public static final String KEY_ISSWIPEBACK = "isSwipeBack";
 
 	private BaseFragment mFragment;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		boolean isSwipeBack = getIntent().getBooleanExtra(KEY_ISSWIPEBACK, false);
+		setIsInnitSwipeBack(isSwipeBack);
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.container_fram);
 
@@ -58,16 +62,17 @@ public class CommonFragmentActivity extends BaseActivity {
 	 * 启动公共activity
 	 * @param activity
 	 * @param pkg 需要启动的包名
+	 * @param isSwipeBack 是否滑动退出activity
 	 * @param bundle 需要
 	 */
-	public void startCommonActivity(Activity activity,String pkg,Bundle bundle)
-	{
-		if(pkg == null || pkg.equals("")){
+	public void startCommonActivity(Activity activity, String pkg, boolean isSwipeBack, Bundle bundle) {
+		if (pkg == null || pkg.equals("")) {
 			return;
 		}
-		Intent intent = new Intent(activity,CommonFragmentActivity.class);
+		Intent intent = new Intent(activity, CommonFragmentActivity.class);
 		intent.putExtra(KEY_PACKAGENAME, pkg);
-		if(bundle != null){
+		intent.putExtra(KEY_ISSWIPEBACK, isSwipeBack);
+		if (bundle != null) {
 			intent.putExtras(bundle);
 		}
 		activity.startActivity(intent);

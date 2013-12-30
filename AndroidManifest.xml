@@ -26,6 +26,16 @@
             android:name=".activity.SlidingActivity"
             android:label="@string/app_name" >
         </activity>
+         <activity
+            android:name=".activity.JazzyActivity"
+            android:label="@string/app_name" 
+            android:theme="@style/swipeBackTheme"
+            >
+        </activity>
+         <activity
+            android:name=".activity.CommonFragmentActivity"
+            android:label="@string/app_name" >
+        </activity>
     </application>
 
 </manifest>
