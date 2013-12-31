@@ -27,8 +27,8 @@ public class CommonFragmentActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		boolean isSwipeBack = getIntent().getBooleanExtra(KEY_ISSWIPEBACK, false);
-		setIsInnitSwipeBack(isSwipeBack);
+		boolean isSwipeBackEnable = getIntent().getBooleanExtra(KEY_ISSWIPEBACK, false);
+		setIsSwipeBackEnable(isSwipeBackEnable);
 		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.container_fram);

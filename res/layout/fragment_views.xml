@@ -9,5 +9,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="JazzyViewPager" />
+    
+    <Button
+        android:id="@+id/btnImageCache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ImageCache" />
 
 </LinearLayout>

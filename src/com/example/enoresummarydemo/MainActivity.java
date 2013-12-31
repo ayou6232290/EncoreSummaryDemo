@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		setIsInnitSwipeBack(false); // 在super oncreate 前调用是否启动滑动后退的插件
+		setIsSwipeBackEnable(false); // 在super oncreate 前调用是否启动滑动后退的插件
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		// 初始化UI
