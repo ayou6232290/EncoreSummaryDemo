@@ -1,6 +1,7 @@
 package com.example.enoresummarydemo.fragment.base;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
@@ -11,6 +12,8 @@ import android.view.KeyEvent;
  * 
  */
 public abstract class BaseFragment extends Fragment {
+	
+	private Handler mHandler;
 	
 	/**
 	 * 公共startActivify
@@ -29,4 +32,16 @@ public abstract class BaseFragment extends Fragment {
 	public boolean onKeyDown(int keyCode, KeyEvent event){
 		return true;
 	};
+	
+	/**
+	 * 获取handler
+	 * @return
+	 */
+	public Handler getHandler()
+	{
+		if(mHandler == null){
+			mHandler = new Handler();
+		}
+		return mHandler;
+	}
 }

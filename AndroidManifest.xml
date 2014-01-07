@@ -8,6 +8,9 @@
         android:minSdkVersion="9"
         android:targetSdkVersion="17" />
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:name=".SummaryApplication"
         android:allowBackup="true"
@@ -27,14 +30,14 @@
             android:name=".activity.SlidingActivity"
             android:label="@string/app_name" >
         </activity>
-         <activity
+        <activity
             android:name=".activity.JazzyActivity"
-            android:label="@string/app_name" 
-            android:theme="@style/swipeBackTheme"
-            >
+            android:label="@string/app_name"
+            android:theme="@style/swipeBackTheme" >
         </activity>
-         <activity
+        <activity
             android:name=".activity.CommonFragmentActivity"
+             android:theme="@style/swipeBackTheme"
             android:label="@string/app_name" >
         </activity>
     </application>

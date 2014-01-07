@@ -1,5 +1,6 @@
 package com.example.enoresummarydemo.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
@@ -7,9 +8,11 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
+import cn.encore.lib.utils.Log;
 import cn.encore.lib.widget.JazzyViewPager;
 import cn.encore.lib.widget.JazzyViewPager.TransitionEffect;
 import cn.encore.lib.widget.OutlineContainer;
@@ -19,6 +22,10 @@ import com.example.enoresummarydemo.R;
 
 public class JazzyActivity extends BaseActivity {
 
+	public static final String TAG = "test";
+	
+	public static int Count = 0;
+	
 	private JazzyViewPager mJazzy;
 
 	@Override

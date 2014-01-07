@@ -65,7 +65,7 @@ public class CommonFragmentActivity extends BaseActivity {
 	 * @param isSwipeBack 是否滑动退出activity
 	 * @param bundle 需要
 	 */
-	public void startCommonActivity(Activity activity, String pkg, boolean isSwipeBack, Bundle bundle) {
+	public static void startCommonActivity(Activity activity, String pkg, boolean isSwipeBack, Bundle bundle) {
 		if (pkg == null || pkg.equals("")) {
 			return;
 		}

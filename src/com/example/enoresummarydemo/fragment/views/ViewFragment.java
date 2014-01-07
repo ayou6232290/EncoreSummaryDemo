@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.enoresummarydemo.R;
+import com.example.enoresummarydemo.activity.CommonFragmentActivity;
 import com.example.enoresummarydemo.activity.JazzyActivity;
 import com.example.enoresummarydemo.activity.SlidingActivity;
 import com.example.enoresummarydemo.fragment.base.BaseFragment;
 
 public class ViewFragment extends BaseFragment {
 	private Button mBtnJazzyViewPager;
+
+	private Button mBtnImageCache;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,8 +30,10 @@ public class ViewFragment extends BaseFragment {
 
 	public void initUI(View view) {
 		mBtnJazzyViewPager = (Button) view.findViewById(R.id.btnJazzyViewPager);
+		mBtnImageCache = (Button) view.findViewById(R.id.btnImageCache);
 
 		mBtnJazzyViewPager.setOnClickListener(mOnClickListener);
+		mBtnImageCache.setOnClickListener(mOnClickListener);
 	}
 
 	public OnClickListener mOnClickListener = new OnClickListener() {
@@ -39,6 +44,10 @@ public class ViewFragment extends BaseFragment {
 			switch (v.getId()) {
 			case R.id.btnJazzyViewPager:
 				commonStartActivity(new Intent(getActivity(), JazzyActivity.class));
+				break;
+			case R.id.btnImageCache:
+				String pkg = ImageCacheFragment.class.getName();
+				CommonFragmentActivity.startCommonActivity(getActivity(), pkg, true, null);
 				break;
 			}
 		}
