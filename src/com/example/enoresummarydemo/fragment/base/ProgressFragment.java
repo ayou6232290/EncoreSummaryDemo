@@ -42,6 +42,7 @@ public class ProgressFragment extends BaseFragment {
 	private View mContentError;
 	private View mContentView;
 	private View mEmptyView;
+	private TextView mTvError;
 	private boolean mContentShown;
 	private boolean mIsContentEmpty;
 
@@ -288,19 +289,29 @@ public class ProgressFragment extends BaseFragment {
 	 * 
 	 * @param isError
 	 */
-	public void setContentError(boolean isError) {
-		ensureContent();
-		if (mContentView == null) {
-			throw new IllegalStateException("Content view must be initialized before");
-		}
-		if (isError) {
-			setContentShown(true);
-			mContentError.setVisibility(View.VISIBLE);
-			mContentView.setVisibility(View.GONE);
-		} else {
-			mContentError.setVisibility(View.GONE);
-			mContentView.setVisibility(View.VISIBLE);
-		}
+	public void setContentError(final boolean isError,final String msg) {
+		getHandler().post(new Runnable() {
+			
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				ensureContent();
+				if (mContentView == null) {
+					throw new IllegalStateException("Content view must be initialized before");
+				}
+				if (isError) {
+					setContentShown(true);
+					mContentError.setVisibility(View.VISIBLE);
+					mContentView.setVisibility(View.GONE);
+					if(msg != null && !msg.equals("")){
+						mTvError.setText(msg);
+					}
+				} else {
+					mContentError.setVisibility(View.GONE);
+					mContentView.setVisibility(View.VISIBLE);
+				}
+			}
+		});
 	}
 	/**
 	 * 设置请求错误按钮点击事件
@@ -340,6 +351,7 @@ public class ProgressFragment extends BaseFragment {
 		mContentError = root.findViewById(R.id.content_error);
 		if (mContentError != null) {
 			mContentError.setVisibility(View.GONE);
+			mTvError = (TextView) mContentError.findViewById(R.id.tvError);
 		}
 
 		mContentShown = true;

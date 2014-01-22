@@ -10,6 +10,7 @@ import com.example.enoresummarydemo.BaseActivity;
 import com.example.enoresummarydemo.R;
 import com.example.enoresummarydemo.fragment.base.BaseFragment;
 import com.example.enoresummarydemo.fragment.sliding.ViewPagerFragment;
+import com.example.enoresummarydemo.fragment.views.ImageCacheFragment;
 
 /**
  * 公共加载fragmentAcitivty
@@ -65,10 +66,11 @@ public class CommonFragmentActivity extends BaseActivity {
 	 * @param isSwipeBack 是否滑动退出activity
 	 * @param bundle 需要
 	 */
-	public static void startCommonActivity(Activity activity, String pkg, boolean isSwipeBack, Bundle bundle) {
-		if (pkg == null || pkg.equals("")) {
+	public static void startCommonActivity(Activity activity, Class targetFragment, boolean isSwipeBack, Bundle bundle) {
+		if (targetFragment == null) {
 			return;
 		}
+		String pkg = targetFragment.getName();
 		Intent intent = new Intent(activity, CommonFragmentActivity.class);
 		intent.putExtra(KEY_PACKAGENAME, pkg);
 		intent.putExtra(KEY_ISSWIPEBACK, isSwipeBack);

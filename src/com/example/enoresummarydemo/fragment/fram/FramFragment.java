@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import com.example.enoresummarydemo.R;
+import com.example.enoresummarydemo.activity.CommonFragmentActivity;
 import com.example.enoresummarydemo.activity.SlidingActivity;
 import com.example.enoresummarydemo.fragment.base.BaseFragment;
 
@@ -46,6 +47,7 @@ public class FramFragment extends BaseFragment {
 				break;
 			case R.id.btnViewPagerFragment:
 //				commonStartActivity(new Intent());
+				CommonFragmentActivity.startCommonActivity(getActivity(), ViewPagerFragment.class, true, null);
 				break;
 			}
 		}

@@ -46,8 +46,7 @@ public class ViewFragment extends BaseFragment {
 				commonStartActivity(new Intent(getActivity(), JazzyActivity.class));
 				break;
 			case R.id.btnImageCache:
-				String pkg = ImageCacheFragment.class.getName();
-				CommonFragmentActivity.startCommonActivity(getActivity(), pkg, true, null);
+				CommonFragmentActivity.startCommonActivity(getActivity(), ImageCacheFragment.class, true, null);
 				break;
 			}
 		}
