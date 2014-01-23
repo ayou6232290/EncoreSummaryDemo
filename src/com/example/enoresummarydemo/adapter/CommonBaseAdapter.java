@@ -18,12 +18,13 @@ public abstract class CommonBaseAdapter extends BaseAdapter {
 	{
 		if(mDisplayImageOptions == null){
 			mDisplayImageOptions = new DisplayImageOptions.Builder()
-			.showImageOnLoading(R.drawable.ic_launcher)
-			.showImageForEmptyUri(R.drawable.ic_launcher)
-			.showImageOnFail(R.drawable.ic_launcher)
+			.showImageOnLoading(loadingRes)
+			.showImageForEmptyUri(failRes)
+			.showImageOnFail(emptyRes)
 			.cacheInMemory(true)
 			.cacheOnDisc(true)
-			.displayer(new FadeInBitmapDisplayer(500)).build();
+			.displayer(new FadeInBitmapDisplayer(500))
+			.build();
 		}
 	}
 	/**

@@ -84,8 +84,10 @@ public class SingerFragment extends ProgressFragment {
 			sendMessage(mHandler, TAG_REFRESH_DATA, mSingerTypeItems);
 			return;
 		}
-		boolean isShowContent = false;
-		isShowContent = HttpApi.madeSingerList(getActivity(),true, new OnRequestCallback() {
+		// 设置当前为loading状态
+		setContentShown(false);
+		
+		HttpApi.madeSingerList(getActivity(),true, new OnRequestCallback() {
 
 			@Override
 			public void onSuccess(Object result) {
@@ -104,8 +106,6 @@ public class SingerFragment extends ProgressFragment {
 			}
 		});
 		
-		// 设置当前为loading状态
-		setContentShown(false);
 	}
 
 	/**

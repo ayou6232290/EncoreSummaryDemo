@@ -13,6 +13,7 @@ import cn.encore.lib.widget.XListView;
 import cn.encore.lib.widget.XListView.IXListViewListener;
 
 import com.example.enoresummarydemo.R;
+import com.example.enoresummarydemo.adapter.CommonBaseAdapter;
 import com.example.enoresummarydemo.fragment.base.ProgressFragment;
 import com.example.enoresummarydemo.utils.Extra;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -142,7 +143,7 @@ public class ImageCacheFragment extends ProgressFragment {
 		}
 	};
 
-	class ItemAdapter extends BaseAdapter {
+	class ItemAdapter extends CommonBaseAdapter {
 
 		private class ViewHolder {
 			public TextView text;

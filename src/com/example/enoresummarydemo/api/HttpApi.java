@@ -24,8 +24,9 @@ public class HttpApi {
 	public static final boolean madeSingerList(final Context context,final boolean isSaveCache, final OnRequestCallback cb) {
 		final String url = HttpSetting.SINGER_LIST_URL;
 		//如果是保存缓存,先重缓存里面
+		boolean isHaveCache = false;
 		if(isSaveCache){
-			return callBackCache(context, url, cb);
+			isHaveCache = callBackCache(context, url, cb);
 		}
 		Request request = new Request(url);
 		request.setParser(new JsonParser(SingerTypeVO.class, false));
@@ -50,7 +51,7 @@ public class HttpApi {
 			}
 		});
 		HttpConnectManager.getInstance(context.getApplicationContext()).doGet(request);
-		return false;
+		return isHaveCache;
 	}
 	
 	/**
