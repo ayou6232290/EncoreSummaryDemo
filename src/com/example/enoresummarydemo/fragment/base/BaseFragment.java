@@ -105,7 +105,13 @@ public abstract class BaseFragment extends Fragment {
 	 * @return
 	 */
 	public DisplayImageOptions madeDefaultImageCache() {
-		DisplayImageOptions mOptions = new DisplayImageOptions.Builder().showImageOnLoading(R.drawable.ic_launcher).showImageForEmptyUri(R.drawable.ic_launcher).showImageOnFail(R.drawable.ic_launcher).cacheInMemory(true).cacheOnDisc(true).displayer(new FadeInBitmapDisplayer(500)).build();
+		DisplayImageOptions mOptions = new DisplayImageOptions.Builder()
+		.showImageOnLoading(R.drawable.ic_launcher)
+		.showImageForEmptyUri(R.drawable.ic_launcher)
+		.showImageOnFail(R.drawable.ic_launcher)
+		.cacheInMemory(true)
+		.cacheOnDisc(true)
+		.displayer(new FadeInBitmapDisplayer(500)).build();
 		return mOptions;
 	}
 }

@@ -4,7 +4,6 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,11 +12,11 @@ import cn.encore.lib.http.OnRequestCallback;
 import cn.encore.lib.widget.XListView;
 
 import com.example.enoresummarydemo.R;
+import com.example.enoresummarydemo.adapter.SingerAdapter;
 import com.example.enoresummarydemo.api.HttpApi;
 import com.example.enoresummarydemo.bean.SingerTypeItem;
 import com.example.enoresummarydemo.bean.SingerTypeVO;
 import com.example.enoresummarydemo.fragment.base.ProgressFragment;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.PauseOnScrollListener;
 
@@ -31,8 +30,9 @@ public class SingerFragment extends ProgressFragment {
 	// listView
 	private XListView mListView;
 
-	private DisplayImageOptions mOptions;
-	
+	// 分类adapter
+	private SingerAdapter mSingerAdapter;
+
 	private List<SingerTypeItem> mSingerTypeItems;
 
 	@Override
@@ -49,8 +49,6 @@ public class SingerFragment extends ProgressFragment {
 		setContentView(mContentView);
 		// 初始化UI
 		initUI();
-		// 初始化imageCache
-		mOptions = madeDefaultImageCache();
 		// 获取内容
 		obtainData();
 	}
@@ -63,6 +61,7 @@ public class SingerFragment extends ProgressFragment {
 		mListView.setPullLoadEnable(false);
 		mListView.setPullRefreshEnable(false);
 		mListView.setOnScrollListener(new PauseOnScrollListener(ImageLoader.getInstance(), false, true));
+		
 		/**
 		 * 错误点击处理
 		 */
@@ -80,11 +79,13 @@ public class SingerFragment extends ProgressFragment {
 	 * 
 	 */
 	public void obtainData() {
-		
-		// 设置当前为loading状态
-		setContentShown(false);
-
-		HttpApi.madeSingerList(getActivity(), new OnRequestCallback() {
+		if (mSingerTypeItems != null && mSingerTypeItems.size() != 0) {
+			setContentShown(true);
+			sendMessage(mHandler, TAG_REFRESH_DATA, mSingerTypeItems);
+			return;
+		}
+		boolean isShowContent = false;
+		isShowContent = HttpApi.madeSingerList(getActivity(),true, new OnRequestCallback() {
 
 			@Override
 			public void onSuccess(Object result) {
@@ -102,6 +103,9 @@ public class SingerFragment extends ProgressFragment {
 				setContentError(true, msg);
 			}
 		});
+		
+		// 设置当前为loading状态
+		setContentShown(false);
 	}
 
 	/**
@@ -110,7 +114,17 @@ public class SingerFragment extends ProgressFragment {
 	 * @param hotSaleItems
 	 */
 	public void refreshtDatas(List<SingerTypeItem> hotSaleItems) {
+		if (mSingerAdapter == null) {
+			mSingerAdapter = new SingerAdapter(getActivity().getApplicationContext());
+		}
+		if (mListView.getAdapter() == null) {
+			mListView.setAdapter(mSingerAdapter);
+		}
 		if (hotSaleItems != null && hotSaleItems.size() != 0) {
+			mSingerTypeItems = hotSaleItems;
+			mSingerAdapter.setDatas(mSingerTypeItems);
+			mSingerAdapter.notifyDataSetChanged();
+			
 			setContentShown(true);
 		} else {
 			diposeFail("没有数据");
@@ -138,5 +152,13 @@ public class SingerFragment extends ProgressFragment {
 				break;
 			}
 		};
+	};
+	@Override
+	public void onDestroy() {
+		super.onDestroy();
+		if(mSingerTypeItems != null){
+			mSingerTypeItems.clear();
+			mSingerTypeItems = null;
+		}
 	};
 }
